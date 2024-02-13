@@ -110,16 +110,17 @@ function draw() {
     trex.velocityY = 0;
     trex.changeAnimation("collided",trex_collided);
     obstacleGroup.setLifetimeEach(-1);
-    cloudsGroup.setLifetimeEach(-1);  
+    cloudsGroup.setLifetimeEach(-1);
+    if(mousePressedOver(restart)||touches.length>0){
+      console.log("reiniciar o jogo");
+      reset();
+      touches = [];
+    }  
   }
 
   //trex.collide(edges[3]);
   trex.collide(invisibleGround);
-  if(mousePressedOver(restart)||touches.length>0){
-    console.log("reiniciar o jogo");
-    reset();
-    touches = [];
-  }
+  
   drawSprites();
 }
 function criarNuvens(){
